@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard Interactivo</title>
+  <meta name="description" content="Aplicación web interactiva con visualizaciones de datos y diseño accesible." />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Dashboard Interactivo</h1>
+      <p class="lead">Explora los datos con filtros, hover y detalles accesibles.</p>
+    </div>
+  </header>
+
+  <main class="container" id="main" tabindex="-1">
+    <section aria-labelledby="controls-heading" class="controls"> 
+      <label for="categoryFilter">Filtrar por categoría:</label>
+      <select id="categoryFilter" aria-controls="chartSection">
+        <option value="all">Todas</option>
+      </select>
+
+      <button id="resetBtn">Restablecer</button>
+    </section>
+
+    <section id="chartSection" aria-labelledby="chart-heading" class="chart-area">
+      <h2 id="chart-heading">Visualización: Productos vendidos por mes</h2>
+      <canvas id="mainChart" role="img" aria-label="Gráfico de barras mostrando productos vendidos por mes"></canvas>
+    </section>
+
+    <section class="details" aria-labelledby="details-heading">
+      <h2 id="details-heading">Detalles</h2>
+      <div id="detailsContent" aria-live="polite">Haz clic en una barra para ver detalles.</div>
+    </section>
+  </main>
+
+  <!-- Modal accesible -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar diálogo">✕</button>
+      <h3 id="modalTitle">Detalle</h3>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>CAV_Practica Modulo 5</small>
+    </div>
+  </footer>
+</body>
+</html>

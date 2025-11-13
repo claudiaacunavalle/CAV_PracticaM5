@@ -1,0 +1,231 @@
+/* ==========================
+   VARIABLES Y PALETA
+   ========================== */
+:root {
+  /* Paleta moderna con toques púrpura */
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --primary: #6a4bbd;
+  --primary-light: #b7a7f1;
+  --text: #1c1b21;
+  --text-muted: #6b6b76;
+  --border: #e2e2ea;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --radius: 12px;
+
+  --focus-ring: 2px solid var(--primary-light);
+}
+
+/* ==========================
+   RESETEO Y BASE
+   ========================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor general */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ==========================
+   HEADER
+   ========================== */
+.site-header {
+  background: linear-gradient(90deg, var(--primary), #8e7fe7);
+  color: #fff;
+  padding: 36px 0;
+  box-shadow: var(--shadow);
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.site-header .lead {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* ==========================
+   CONTROLES Y BOTONES
+   ========================== */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 28px 0;
+}
+
+.controls label {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.controls select,
+.controls button {
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.controls select:hover,
+.controls button:hover {
+  border-color: var(--primary);
+  background: #fafaff;
+}
+
+.controls select:focus,
+.controls button:focus {
+  outline: var(--focus-ring);
+}
+
+/* ==========================
+   ÁREA DE GRÁFICOS
+   ========================== */
+.chart-area {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+
+.chart-area:hover {
+  transform: translateY(-3px);
+}
+
+.chart-area h2 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+canvas {
+  width: 100% !important;
+  max-height: 420px;
+}
+
+/* ==========================
+   DETALLES
+   ========================== */
+.details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  color: var(--text-muted);
+}
+
+.details strong {
+  color: var(--primary);
+}
+
+/* ==========================
+   MODAL
+   ========================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+}
+
+.modal[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--surface);
+  border-radius: var(--radius);
+  width: min(600px, 95%);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.modal h3 {
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: var(--primary);
+}
+
+/* ==========================
+   FOOTER
+   ========================== */
+.site-footer {
+  margin-top: auto;
+  background: #f1f1f7;
+  text-align: center;
+  padding: 14px 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ==========================
+   RESPONSIVO
+   ========================== */
+@media (max-width: 768px) {
+  .site-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .controls select,
+  .controls button {
+    width: 100%;
+  }
+}
